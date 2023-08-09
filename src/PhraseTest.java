@@ -5,9 +5,9 @@ public class PhraseTest
 	static Scanner sc=new Scanner(System.in);
 	public static void mode1(String ques[], String ans[], int record[], int error[], int quesnum, int score)
 	{
-		String input = new String();//user¿é¤Jªºµª®×
-		int []temp=new int[20];//Àx¦s¿ùÃD
-		//ªì©l¤Æ¬O§_¥X¹L¬YÃD¤Î¿ùÃD°}¦C
+		String input = new String();//userè¼¸å…¥çš„ç­”æ¡ˆ
+		int []temp=new int[20];//å„²å­˜éŒ¯é¡Œ
+		//åˆå§‹åŒ–æ˜¯å¦å‡ºéæŸé¡ŒåŠéŒ¯é¡Œé™£åˆ—
 		for(int a=0;a<20;a++)
 		{
 			record[a]=0;
@@ -15,27 +15,27 @@ public class PhraseTest
 		}
 		int number, i=0, j=0, k=0;
 		
-		//¥ı±q¿ùÃD°}¦C¤¤¥XÃD¡Aerror[k]¬°ÃD¸¹
+		//å…ˆå¾éŒ¯é¡Œé™£åˆ—ä¸­å‡ºé¡Œï¼Œerror[k]ç‚ºé¡Œè™Ÿ
 		for(k=0;error[k]!=21 && k<quesnum;k++)
 		{
-			System.out.print("²Ä"+(i+1)+"ÃD- "+ques[error[k]]+": ");
+			System.out.print("ç¬¬"+(i+1)+"é¡Œ- "+ques[error[k]]+": ");
 			input=sc.nextLine();
 			
-			if(input.equals(ans[error[k]]))//µª¹ï
+			if(input.equals(ans[error[k]]))//ç­”å°
 			{
 				score+=10;
-				System.out.println("CORRECT! ¥Ø«e±o¤À: "+score+"¤À");
+				System.out.println("CORRECT! ç›®å‰å¾—åˆ†: "+score+"åˆ†");
 			}
-			else//µª¿ù
+			else//ç­”éŒ¯
 			{
-				System.out.println("INCORRECT! ¥Ø«e±o¤À: "+score+"¤À");
-				temp[j]=error[k];//¿ùÃDÃD¸¹¬ö¿ı¦Ü¿ùÃD°}¦C¤¤
-				j++;//¿ùÃD°}¦C¯Á¤Ş+1
+				System.out.println("INCORRECT! ç›®å‰å¾—åˆ†: "+score+"åˆ†");
+				temp[j]=error[k];//éŒ¯é¡Œé¡Œè™Ÿç´€éŒ„è‡³éŒ¯é¡Œé™£åˆ—ä¸­
+				j++;//éŒ¯é¡Œé™£åˆ—ç´¢å¼•+1
 			}
-			record[error[k]]=1;//§ó·s¬O§_¥X¹L¬YÃDªº°}¦C
+			record[error[k]]=1;//æ›´æ–°æ˜¯å¦å‡ºéæŸé¡Œçš„é™£åˆ—
 		}
 		
-		//§ó·s¿ùÃD¦W³æ
+		//æ›´æ–°éŒ¯é¡Œåå–®
 		for(int a=0;a<20;a++)
 		{
 			int b=0;
@@ -47,41 +47,41 @@ public class PhraseTest
 			}
 		}
 		
-		//­Y¿ùÃD¥X§¹¤F¡A±q³Ñ¾lªºÃD¥Ø¤¤¥XÃD
+		//è‹¥éŒ¯é¡Œå‡ºå®Œäº†ï¼Œå¾å‰©é¤˜çš„é¡Œç›®ä¸­å‡ºé¡Œ
 		while(i<quesnum-k)
 		{
-			number = (int)(Math.random()*1000) % 19;//ÀH¾÷ÃD¸¹
-			if(record[number]==0)//§PÂ_¦¹ÃD©|¥¼¥X¹L
+			number = (int)(Math.random()*1000) % 19;//éš¨æ©Ÿé¡Œè™Ÿ
+			if(record[number]==0)//åˆ¤æ–·æ­¤é¡Œå°šæœªå‡ºé
 			{
-				System.out.print("²Ä"+(i+1)+"ÃD- "+ques[number]+": ");
+				System.out.print("ç¬¬"+(i+1)+"é¡Œ- "+ques[number]+": ");
 				input=sc.nextLine();
-				if(input.equals(ans[number]))//µª¹ï
+				if(input.equals(ans[number]))//ç­”å°
 				{
 					score+=10;
-					System.out.println("CORRECT! ¥Ø«e±o¤À: "+score+"¤À");
+					System.out.println("CORRECT! ç›®å‰å¾—åˆ†: "+score+"åˆ†");
 				}
-				else//µª¿ù
+				else//ç­”éŒ¯
 				{
-					System.out.println("INCORRECT! ¥Ø«e±o¤À: "+score+"¤À");
-					error[j++]=number;//¿ùÃDÃD¸¹¬ö¿ı¦Ü¿ùÃD°}¦C¤¤
+					System.out.println("INCORRECT! ç›®å‰å¾—åˆ†: "+score+"åˆ†");
+					error[j++]=number;//éŒ¯é¡Œé¡Œè™Ÿç´€éŒ„è‡³éŒ¯é¡Œé™£åˆ—ä¸­
 				}
 				
-				record[number]=1;//§ó·s¬O§_¥X¹L¬YÃDªº°}¦C
-				i++;//°O¿ı¦¹½üªºÁ`¥XÃD¼Æ
+				record[number]=1;//æ›´æ–°æ˜¯å¦å‡ºéæŸé¡Œçš„é™£åˆ—
+				i++;//è¨˜éŒ„æ­¤è¼ªçš„ç¸½å‡ºé¡Œæ•¸
 			}
-			else//§PÂ_¦¹ÃD¤w¸g¥X¹L
-				continue;//­«·sÀH¾÷¼Æ¦r
+			else//åˆ¤æ–·æ­¤é¡Œå·²ç¶“å‡ºé
+				continue;//é‡æ–°éš¨æ©Ÿæ•¸å­—
 		}
-		System.out.println("´úÅçµ²§ô! ±o¤À:"+score+"¤À, µª¹ï²v"+(((quesnum-j)*100)/quesnum)+"%");
+		System.out.println("æ¸¬é©—çµæŸ! å¾—åˆ†:"+score+"åˆ†, ç­”å°ç‡"+(((quesnum-j)*100)/quesnum)+"%");
 		System.out.println("======================================");
 	}
 	
 	public static void mode2(String ques[], String ans[], int record[], int error[], int quesnum, int score)
 	{
-		String input = new String();//user¿é¤Jªºµª®×
-		int []temp=new int[20];//Àx¦s¿ùÃD
-		int []getscore=new int[20];//¬ö¿ı¸Ó¤pÃD¥i±o¤À¼Æ
-		//ªì©l¤Æ¬O§_¥X¹L¬YÃD¤Î¿ùÃD°}¦C
+		String input = new String();//userè¼¸å…¥çš„ç­”æ¡ˆ
+		int []temp=new int[20];//å„²å­˜éŒ¯é¡Œ
+		int []getscore=new int[20];//ç´€éŒ„è©²å°é¡Œå¯å¾—åˆ†æ•¸
+		//åˆå§‹åŒ–æ˜¯å¦å‡ºéæŸé¡ŒåŠéŒ¯é¡Œé™£åˆ—
 		for(int a=0;a<20;a++)
 		{
 			record[a]=0;
@@ -90,25 +90,25 @@ public class PhraseTest
 		}
 		int number, i=0, j=0, k=0;
 		
-		//¥ı±q¿ùÃD°}¦C¤¤¥XÃD¡Aerror[k]¬°ÃD¸¹
+		//å…ˆå¾éŒ¯é¡Œé™£åˆ—ä¸­å‡ºé¡Œï¼Œerror[k]ç‚ºé¡Œè™Ÿ
 		for(k=0;error[k]!=21 && k<quesnum;k++)
 		{
-			record[error[k]]=1;//§ó·s¬O§_¥X¹L¬YÃDªº°}¦C
-			i++;//°O¿ı¦¹½üªºÁ`¥XÃD¼Æ
+			record[error[k]]=1;//æ›´æ–°æ˜¯å¦å‡ºéæŸé¡Œçš„é™£åˆ—
+			i++;//è¨˜éŒ„æ­¤è¼ªçš„ç¸½å‡ºé¡Œæ•¸
 			while(true)
 			{
-				System.out.print("²Ä"+i+"ÃD- "+ques[error[k]]+": ");
+				System.out.print("ç¬¬"+i+"é¡Œ- "+ques[error[k]]+": ");
 				input=sc.nextLine();
-				if(input.equals(ans[error[k]]))//µª¹ï
+				if(input.equals(ans[error[k]]))//ç­”å°
 				{
 					score+=getscore[error[k]];
-					System.out.println("CORRECT! ¥Ø«e±o¤À: "+score+"¤À");
+					System.out.println("CORRECT! ç›®å‰å¾—åˆ†: "+score+"åˆ†");
 					break;
 				}
-				else//µª¿ù
+				else//ç­”éŒ¯
 				{
 					if(getscore[error[k]]==10)
-						error[j++]=error[k];//¿ùÃDÃD¸¹¬ö¿ı¦Ü¿ùÃD°}¦C¤¤
+						error[j++]=error[k];//éŒ¯é¡Œé¡Œè™Ÿç´€éŒ„è‡³éŒ¯é¡Œé™£åˆ—ä¸­
 					if(getscore[error[k]]>0)
 						getscore[error[k]]--;
 					System.out.println("INCORRECT! Hint:"+ans[error[k]].charAt(0)+"..."+ans[error[k]].charAt(ans[error[k]].length()-1));
@@ -116,7 +116,7 @@ public class PhraseTest
 			}
 		}
 		
-		//§ó·s¿ùÃD¦W³æ
+		//æ›´æ–°éŒ¯é¡Œåå–®
 		for(int a=0;a<20;a++)
 		{
 			int b=0;
@@ -128,38 +128,38 @@ public class PhraseTest
 			}
 		}
 
-		//­Y¿ùÃD¥X§¹¤F¡A±q³Ñ¾lªºÃD¥Ø¤¤¥XÃD
+		//è‹¥éŒ¯é¡Œå‡ºå®Œäº†ï¼Œå¾å‰©é¤˜çš„é¡Œç›®ä¸­å‡ºé¡Œ
 		while(i<quesnum)
 		{
-			number = (int)(Math.random()*1000) % 19;//ÀH¾÷ÃD¸¹
-			if(record[number]==0)//§PÂ_¦¹ÃD©|¥¼¥X¹L
+			number = (int)(Math.random()*1000) % 19;//éš¨æ©Ÿé¡Œè™Ÿ
+			if(record[number]==0)//åˆ¤æ–·æ­¤é¡Œå°šæœªå‡ºé
 			{
-				record[number]=1;//§ó·s¬O§_¥X¹L¬YÃDªº°}¦C
-				i++;//°O¿ı¦¹½üªºÁ`¥XÃD¼Æ
+				record[number]=1;//æ›´æ–°æ˜¯å¦å‡ºéæŸé¡Œçš„é™£åˆ—
+				i++;//è¨˜éŒ„æ­¤è¼ªçš„ç¸½å‡ºé¡Œæ•¸
 				while(true)
 				{
-					System.out.print("²Ä"+i+"ÃD- "+ques[number]+": ");
+					System.out.print("ç¬¬"+i+"é¡Œ- "+ques[number]+": ");
 					input=sc.nextLine();
-					if(input.equals(ans[number]))//µª¹ï
+					if(input.equals(ans[number]))//ç­”å°
 					{
 						score+=getscore[number];
-						System.out.println("CORRECT! ¥Ø«e±o¤À: "+score+"¤À");
+						System.out.println("CORRECT! ç›®å‰å¾—åˆ†: "+score+"åˆ†");
 						break;
 					}
-					else//µª¿ù
+					else//ç­”éŒ¯
 					{
 						if(getscore[number]==10)
-							error[j++]=number;//¿ùÃDÃD¸¹¬ö¿ı¦Ü¿ùÃD°}¦C¤¤
+							error[j++]=number;//éŒ¯é¡Œé¡Œè™Ÿç´€éŒ„è‡³éŒ¯é¡Œé™£åˆ—ä¸­
 						if(getscore[number]>0)
 							getscore[number]--;
 						System.out.println("INCORRECT! Hint:"+ans[number].charAt(0)+"..."+ans[number].charAt(ans[number].length()-1));
 					}
 				}
 			}
-			else//§PÂ_¦¹ÃD¤w¸g¥X¹L
-				continue;//­«·sÀH¾÷¼Æ¦r
+			else//åˆ¤æ–·æ­¤é¡Œå·²ç¶“å‡ºé
+				continue;//é‡æ–°éš¨æ©Ÿæ•¸å­—
 		}
-		System.out.println("´úÅçµ²§ô! ±o¤À:"+score+"¤À, µª¹ï²v"+(((quesnum-j)*100)/quesnum)+"%");
+		System.out.println("æ¸¬é©—çµæŸ! å¾—åˆ†:"+score+"åˆ†, ç­”å°ç‡"+(((quesnum-j)*100)/quesnum)+"%");
 		System.out.println("======================================");
 	}
 	
@@ -170,10 +170,10 @@ public class PhraseTest
 				"make up for", "free of", "long before", "vary with", "bring about",
 				"accompany by", "pass through", "reach for", "contrary to", "except for", 
 				"more of", "other than", "call for", "try out", "set up"};
-		String []ques={"°¨¤W;¥ß¨è", "¦nªº;·íµM", "§JªA;«ì´_±`ºA", "Ävª§", "Åı¦ì©ó;¦V¡K©}ªA", 
-				"À±¸É", "§K°£;Â\²æ", "«Ü¤[¥H«e", "ÀH¡KÅÜ¤Æ", "³y¦¨;¤Ş°_", 
-				"¦ñÀH;³­¦P", "¸g¹L", "¦ù¤â®³", "»P¡K¬Û¤Ï", "°£¤F¡K¥H¥~", 
-				"§ó¤jµ{«×¤Wªº;§ó¦hªº", "¦Ó¤£¡K", "»İ­n;­È±o;À³¸Ó", "°Ñ¥[(¹B°Ê¶¤ªº)¿ï©Ş;°Ñ¥[(¼@²Õªº)¸Õºt", "³]¸m"};
+		String []ques={"é¦¬ä¸Š;ç«‹åˆ»", "å¥½çš„;ç•¶ç„¶", "å…‹æœ;æ¢å¾©å¸¸æ…‹", "ç«¶çˆ­", "è®“ä½æ–¼;å‘â€¦å±ˆæœ", 
+				"å½Œè£œ", "å…é™¤;æ“ºè„«", "å¾ˆä¹…ä»¥å‰", "éš¨â€¦è®ŠåŒ–", "é€ æˆ;å¼•èµ·", 
+				"ä¼´éš¨;é™ªåŒ", "ç¶“é", "ä¼¸æ‰‹æ‹¿", "èˆ‡â€¦ç›¸å", "é™¤äº†â€¦ä»¥å¤–", 
+				"æ›´å¤§ç¨‹åº¦ä¸Šçš„;æ›´å¤šçš„", "è€Œä¸â€¦", "éœ€è¦;å€¼å¾—;æ‡‰è©²", "åƒåŠ (é‹å‹•éšŠçš„)é¸æ‹”;åƒåŠ (åŠ‡çµ„çš„)è©¦æ¼”", "è¨­ç½®"};
 		int []record=new int[20];
 		int []error=new int[20];
 		for(int a=0;a<20;a++)
@@ -187,19 +187,19 @@ public class PhraseTest
 		{
 			score=0;
 			quesnum=0;
-			System.out.print("½Ğ¿ï¾Ü´úÅç¼Ò¦¡ 1.¯Â´úÅç¼Ò¦¡ 2.½m²ß+´£¥Ü¼Ò¦¡:");
-			mode=sc.nextInt();//Åª¨ú´úÅç¼Ò¦¡
+			System.out.print("è«‹é¸æ“‡æ¸¬é©—æ¨¡å¼ 1.ç´”æ¸¬é©—æ¨¡å¼ 2.ç·´ç¿’+æç¤ºæ¨¡å¼:");
+			mode=sc.nextInt();//è®€å–æ¸¬é©—æ¨¡å¼
 			getnewline=sc.nextLine();
 			if(!(mode==1||mode==2))
 			{
-				System.out.println("¿é¤J¿ù»~!");
+				System.out.println("è¼¸å…¥éŒ¯èª¤!");
 				continue;
 			}
 			else
 			{
-				while(quesnum<=0 || quesnum>20)//¿é¤JÃD¼Æ
+				while(quesnum<=0 || quesnum>20)//è¼¸å…¥é¡Œæ•¸
 				{
-					System.out.print("½Ğ¿é¤J´úÅçÃD¼Æ(<=20):");
+					System.out.print("è«‹è¼¸å…¥æ¸¬é©—é¡Œæ•¸(<=20):");
 					quesnum=sc.nextInt();
 					getnewline=sc.nextLine();
 				}
@@ -207,16 +207,16 @@ public class PhraseTest
 			switch(mode)
 			{
 			case 1:
-				mode1(ques, ans, record, error, quesnum, score);//1.¯Â´úÅç¼Ò¦¡
+				mode1(ques, ans, record, error, quesnum, score);//1.ç´”æ¸¬é©—æ¨¡å¼
 				break;
 			case 2:
-				mode2(ques, ans, record, error, quesnum, score);//2.½m²ß+´£¥Ü¼Ò¦¡
+				mode2(ques, ans, record, error, quesnum, score);//2.ç·´ç¿’+æç¤ºæ¨¡å¼
 				break;
 			default:
 				break;
 			}
 			
-			System.out.print("½Ğ¿ï¾Ü 1.¦A¦¸´úÅç 2.Â÷¶}:");
+			System.out.print("è«‹é¸æ“‡ 1.å†æ¬¡æ¸¬é©— 2.é›¢é–‹:");
 			again=sc.nextInt();
 			if(again==1)
 				continue;
